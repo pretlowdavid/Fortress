@@ -10,11 +10,9 @@ const Posts = () => {
     useEffect(() => {
         const fetchPosts = async () => {
            const response = await axios.get('https://www.reddit.com/r/ProgrammerHumor.json?&limit=20');
-           console.log(response.data.data.children);
            const sortedPosts = response.data.data.children.sort(function(a, b) {
             return b.data.num_comments - a.data.num_comments;
         });
-        console.log(sortedPosts);
         setPosts(sortedPosts);
     
            setPosts(sortedPosts);
